@@ -1,0 +1,40 @@
+services:
+  - type: web
+    name: iphone-15-pro-giveaway-bot
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    maxShutdownDelaySeconds: 30
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: CHANNEL_ID
+        sync: false
+      - key: CHANNEL_URL
+        sync: false
+      - key: CARD_NUMBER
+        sync: false
+      - key: SUPPORT_USERNAME
+        value: ua_101
+      - key: COOPERATION_USERNAME
+        value: ua_101
+      - key: TICKET_PRICE
+        value: "300"
+      - key: TOTAL_TICKETS
+        value: "70"
+      - key: REFERRALS_FOR_FREE_TICKET
+        value: "10"
+      - key: RESERVATION_MINUTES
+        value: "30"
+      - key: PORT
+        value: "10000"
+      - key: DATABASE_PATH
+        value: /app/data/bot.db
+      - key: LOG_LEVEL
+        value: INFO
+    disk:
+      name: bot-data
+      mountPath: /app/data
+      sizeGB: 1
